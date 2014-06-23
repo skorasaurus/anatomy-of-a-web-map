@@ -85,13 +85,14 @@ window.onload = function() {
 };
 </script></head><body>
 <div>Anatomy of a <em>Web Map</em></div>
-<div>By <a href="http://stamen.com/studio/alan">Alan McConchie</a> :) and <a href="http://stamen.com/studio/beth">Beth Schechter</a> :D</div>
+<div>By <a href="http://stamen.com/studio/alan">Alan</a> 
+   <a href="http://stamen.com/studio/beth">Beth</a> (@maptimesf) Adapted by Will </div>
+
 <div>Housekeeping!<br>You can follow along here: <a href="http://sta.mn/qhg">sta.mn/qhg</a>. Links are in blue boxes, <em>green</em> is just emphasis. You can comment and edit on <a href="https://github.com/maptime/anatomy-of-a-web-map/">github!</a></div>
 <div>Now let's get started :)</div>
 <div>Today we will be talking about the <em>very most basic principles</em> of web mapping.</div>
 <div>We're including a little history, so you can get an idea of how web maps have come to be.</div>
 <div>There are always exceptions! We'll talk about those too.</div>
-<div>We'll talk a lot about <em>Google</em>, but we're going to show you a <em>100% open source</em> Google-free stack</div>
 <div>But first, what does <em>anatomy</em> have to do with a web map?</div>
 <div>Well,</div>
 <div>Both bodies and web maps have components and systems that <em>interact and intertwine.</em></div>
@@ -121,14 +122,13 @@ window.onload = function() {
 <div><img src="images/3-map-history/2-Ridgefield-CT-Mapquest-out.jpg"> <em>ta da!</em></div>
 <div>Directions! Online! Revolutionary!</div>
 <div>The problem: it was slow to load :(</div>
-<div>MapQuest required a full page refresh to scroll or zoom, and was always aligned to tile boundaries.</div>
 <div>Google Maps really paved the way for online mapping, beginning in 2005.</div>
 <div><img src="images/3-map-history/3-old-google-maps-1.JPG"></div>
-<div><em>But what was the revolution?</em><br>Was it the interface?<br>The red marker?<br>The weather widget?</div>
+<div><em>But what was the revolution?</em><br>Was it the interface?<br>The red marker?<br>The weather widget?<br>Because it was google?</div>
 <div>No!</div>
 <div>It was the <em>tile. <img src="images/tiles/toner.jpg"></em></div>
 <div>Let's talk about tiles for a minute. And to do so, we're borrowing some info from amazing mapper <a href="http://lyzidiamond.com/">Lyzi Diamond</a>, who got a bunch of info about tiles from <a href="https://www.mapbox.com/">Mapbox</a>.</div>
-<div><em>Thanks y'all! <3 <3 <3</em><br>Now here goes...</div>
+<div><em>Thanks y'all! <3 </em><br>Now here goes...</div>
 <div>All tiles<br>=<br>same size! 256x256 pixels<br>same boundaries<img src="images/tiles.gif"></div>
 <div>Tiles could be a road map, a satellite image, or anything else that's a raster!</div>
 <div><img src="images/tiles-loading.gif">All these little tiles load <em>way faster</em> than one big map.</div>
@@ -147,12 +147,12 @@ window.onload = function() {
 <div>http://<em>tile.openstreetmap.org</em>/4/2/6.png -- this is the name of the tile server.</div>
 <div>http://tile.openstreetmap.org/<em>4</em>/2/6.png -- this is the z value, or the zoom level.</div>
 <div>http://tile.openstreetmap.org/4/<em>2/6</em>.png -- This is the x/y value, or the place in the grid where the tile lives.</div>
-<div>Google maps use <em>Mercator projection</em>, which is designed for sailors BUT it works well for flat maps.</div>
+<div>Web maps use <em>Mercator projection</em>, which is designed for sailors BUT it works well for flat maps.</div>
 <div><a href="http://commons.wikimedia.org/wiki/File:1855_Colton_Map_of_the_World_on_Mercator_Projection_-_Geographicus_-_WorldMercator-colton-1855.jpg"><img src="images/mercator.jpg"></a></div>
 <div>We'll see more map projections later...!</div>
 <div>Anyway, so all other slippy maps and slippy map software followed Google's lead, with tiles at the base.</div>
 <div>Not surprisingly, a collection of <em>raster</em> tiles makes up what we call the map's <em>base layer.</em></div>
-<div>When we layer things like markers on top of them, we call those <em>data layers</em> or <em>content layers</em> or <em>feature layers</em>.</div>
+<div>When we layer things like markers on top of them, we call those <em>layers</em>.</div>
   <div>*(Not every web map contains a feature layer, but they are fairly typical.)</div>
 <div>They are often <em>vector</em> layers (point, line, polygon). Sometimes you can interact with them (clicking to produce a popup, for example).</div>
 <div>Filetypes: GIS uses <em>shapefiles</em>, but web maps prefer <em>KML</em>, or more recently, <a href="http://github.com/lyzidiamond/learn-geojson">GeoJSON</a></div>

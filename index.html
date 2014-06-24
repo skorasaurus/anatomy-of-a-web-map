@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title></title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type='text/css'>
 body {
   font-family: 'Helvetica';
-  letter-spacing:-5px;
+  letter-spacing:-1px;
   background:#000;
   background-size:100%;
   color:#fff;
@@ -24,6 +24,15 @@ a {
   color:#000;
   text-decoration:none;
 }
+
+/* a.cite {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      font: 10px;
+      color: #000;
+      background-color: rgba(255,255,255,.75);
+} */ 
 
 img {
   width:100%;
@@ -86,7 +95,7 @@ window.onload = function() {
 </script></head><body>
 <div>Anatomy of a <em>Web Map</em></div>
 <div>By <a href="http://stamen.com/studio/alan">Alan</a> 
-   <a href="http://stamen.com/studio/beth">Beth</a> (@maptimesf) Adapted by Will </div>
+   <a href="http://stamen.com/studio/beth">Beth</a> (@maptimesf), lyzi, Andy W, Adapted by Will </div>
 
 <div>Housekeeping!<br>You can follow along here: <a href="http://sta.mn/qhg">sta.mn/qhg</a>. Links are in blue boxes, <em>green</em> is just emphasis. You can comment and edit on <a href="https://github.com/maptime/anatomy-of-a-web-map/">github!</a></div>
 <div>Today we will be talking about the <em>very most basic principles</em> of web mapping.</div>
@@ -94,10 +103,7 @@ window.onload = function() {
 <div>But first, what does <em>anatomy</em> have to do with a web map?</div>
 <div>Well,</div>
 <div>Both bodies and web maps have components and systems that <em>interact and intertwine.</em></div>
-<div><img src="images/0-anatomy-dude/anatomy1.png"></div>
-<div><img src="images/0-anatomy-dude/anatomy2.png"></div>
-<div><img src="images/0-anatomy-dude/anatomy3.png"></div>
-<div><img src="images/0-anatomy-dude/anatomy4.png"></div>
+
 <div>Instead of cells, maps have <em>data.</em></div>
 <div>Instead of circulatory and digestive systems, web maps have <em>styles and tiles and servers.</em><br>oh my!</div>
 <div>So, What is a web map?</div>
@@ -106,29 +112,36 @@ window.onload = function() {
 <div><em>Digital</em>: involves a computer, but might not be accessible by the internet.</div>
 <div>A <em>web map</em> is a kind of <em>digital map</em>. And both are obviously quite different from <em>analog</em> maps, such as paper maps and atlases!</div>
 
-<div>web map (aka: slippy map) usually require a internet connection, [usually] interactive, multiple zoom levels! </div>
-<div><img src="images/osm.png"><a href="http://www.openstreetmap.org/">OpenStreetMap.org</a></div>
-<div><img src="images/google-map.png"><a href="https://www.google.com/maps/preview">maps.google.com</a></div>
-<div><img src="images/mapsdotstamen.png"><a href="http://maps.stamen.com">maps.stamen.com</a></div>
-<div><img src="images/iphone_maps.jpg">Making maps for <em>mobile devices</em> can be similar, but we're not talking about that today.</div> 
-<div><img src="images/google-earth.png">We're also not talking about <em>digital globes</em> like <a href="http://www.google.com/earth/">Google Earth</a></div>
+<div>web map (aka: slippy map) require <em> internet * [usually] interactive, * multiple zoom levels! </em> </div>
+<div>
+  <iframe width="100%" height="95%" frameborder="0" src="http://bostonography.com/bus"></iframe>
+<!--   <a class="cite" target="_blank" href="http://bostonography.com/bus">bostonography</a>
+ --> </div> 
+
+<div><img src="images/osm.png"> <em> OpenStreetMap.org</em></div>
+<div><img src="images/google-map.png"></div>
+<div><img src="images/mapsdotstamen.png"><em>maps.stamen.com</em></div>
+
 <div><em>ok ok</em></div>
 <div>but how about a little history:<br><em>How did web maps come to be?</em></div>
 <div style="color: black"><img src="images/3-map-history/1-arcGIS.jpg">First, there were digital maps like <a href="http://www.esri.com/software/arcgis">ArcGIS</a>.</div>
 <div style="color: black"><img src="images/3-map-history/2-Ridgefield-CT-Mapquest-out.jpg">In 1996, Mapquest launched its web service.</div>
-<div><img src="images/3-map-history/2-Ridgefield-CT-Mapquest-out.jpg"> <em>ta da!</em></div>
+<div><img src="images/3-map-history/2-Ridgefield-CT-Mapquest-out.jpg"> </div>
 <div>Directions! Online! Revolutionary!</div>
 <div>The problem: it was slow to load :(</div>
 <div>Google Maps really paved the way for online mapping, beginning in 2005.</div>
 <div><img src="images/3-map-history/3-old-google-maps-1.JPG"></div>
 <div><em>But what was the revolution?</em><br>Was it the interface?<br>The red marker?<br>The weather widget?<br>Because it was google?</div>
 <div>No!</div>
-<div>It was the <em>tile. <img src="images/tiles/toner.jpg"></em></div>
+<div>It was the <em>tile! <img src="images/tiles/toner.jpg"></em></div>
+
 <div>Let's talk about tiles for a minute. And to do so, we're borrowing some info from amazing mapper <a href="http://lyzidiamond.com/">Lyzi Diamond</a>, who got a bunch of info about tiles from <a href="https://www.mapbox.com/">Mapbox</a>.</div>
 <div><em>Thanks y'all! <3 </em><br>Now here goes...</div>
-<div>All tiles<br>=<br>same size! 256x256 pixels<br>same boundaries<img src="images/tiles.gif"></div>
-<div>Tiles could be a road map, a satellite image, or anything else that's a raster!</div>
-<div><img src="images/tiles-loading.gif">All these little tiles load <em>way faster</em> than one big map.</div>
+
+<div><em>tiles<br>=<br>same size! 256x256 pixels<br>same boundaries<br>~20 zoom levels</em></div>
+<div><img src="images/tile_loading.gif"></div> <!-- All these little tiles load way faster than one big map. -->
+
+
 <div>Web maps like this load the tiles that are on your screen. If the map is “smart,” it will pre-load tiles outside of the screen, along the top, bottom, left, and right.</div>
 <div><img src="images/slippy-map.gif">This kind of map is colloquially called a <em>slippy map</em></div>
 <div>Each <em>zoom level</em> has its own set of tiles!</div>

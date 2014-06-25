@@ -148,8 +148,8 @@ window.onload = function() {
 <div><img src="images/tiles/zoom0.png"><em>Zoom level 0: one tile for the world.</em></div>
 <div>With each additional zoom level, the number of tiles increases exponentially.</div>
 <div><img src="images/tiles/zoom1.png"><em>Zoom level 1: 4 tiles for the world.</em></div>
-<div><img src="images/tiles/zoom2-3-4-5.png"><em>Zoom level 2, 3, 4, 5</em></div>
-<div><img src="images/tiles/zoom13.png"><em>Zoom level 13</em></div>
+
+(insert the equation here from andy's slides)
 <div>Tiles are <em>rendered</em> in advance (usually) then stored in a cache</div>
 <div>Map tiles are just images on the web, so you can link to them individually.</div>
 <div>For example: <a href="http://tile.openstreetmap.org/4/2/6.png">http://tile.openstreetmap.org/4/2/6.png</a></div>
@@ -157,6 +157,8 @@ window.onload = function() {
 <div>http://<em>tile.openstreetmap.org</em>/4/2/6.png -- this is the name of the tile server.</div>
 <div>http://tile.openstreetmap.org/<em>4</em>/2/6.png -- this is the z value, or the zoom level.</div>
 <div>http://tile.openstreetmap.org/4/<em>2/6</em>.png -- This is the x/y value, or the place in the grid where the tile lives.</div>
+<div> <p>Number of tiles at zoom level <em>z</em>:<br/>
+    2<sup>z</sup> x 2<sup>z</sup> = 4<sup>z</sup></p></div>
 <div>Web maps use <em>Mercator projection</em>, which is designed for sailors BUT it works well for flat maps.</div>
 <div><a href="http://commons.wikimedia.org/wiki/File:1855_Colton_Map_of_the_World_on_Mercator_Projection_-_Geographicus_-_WorldMercator-colton-1855.jpg"><img src="images/mercator.jpg"></a></div>
 <div>We'll see more map projections later...!</div>
@@ -210,7 +212,7 @@ window.onload = function() {
 <div><img src="images/worldwide-wood.png"> <em>Pretty!</em></div>
 <div>Style your map with <a href="https://www.mapbox.com/carto">CartoCSS</a> (or just carto)</div>
 <div>You can host these files on <a href="https://www.mapbox.com/plans/">MapBox</a>, or...</div>
-<div>Serve the tiles by running your own tile server. For example: <a href="https://github.com/klokantech/tileserver-php/">TileServer.php</a> / <a href="http://tilestache.org">TileStache</a> / <a href="http://tilecache.org">TileCache</a> / <a href="https://github.com/mapbox/tilestream">TileStream</a> / <a href="https://github.com/chelm/mbtiles-server">mbtiles-server</a> / <a href=http://wiki.openstreetmap.org/wiki/Mod_tile">mod_tile</a></div>
+<div>Serve the tiles by running your own tile server. For example: <a href="https://github.com/klokantech/tileserver-php/">TileServer.php</a> / <a href="http://tilestache.org">TileStache</a> / <a href="http://tilecache.org">TileCache</a> / <a href="https://github.com/mapbox/tilestream">TileStream</a> / <a href="https://github.com/chelm/mbtiles-server">mbtiles-server</a>  <a href="http://wiki.openstreetmap.org/wiki/Mod_tile"> mod_tile</a></div>
 <div>See Eric Theise's <a href="http://erictheise.com/maptime_platform_slides">Geo Platform tutorial</a> for all the gritty details</div>
 <div>Do I need a content layer?</div>
 <div>No? Put all your data into the tiles, possibly using UTFGrid for interactivity</div>

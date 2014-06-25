@@ -25,17 +25,17 @@ a {
   text-decoration:none;
 }
 
-/* a.cite {
+cite {
       position: absolute;
       bottom: 5px;
       right: 5px;
       font: 10px;
       color: #000;
       background-color: rgba(255,255,255,.75);
-} */ 
+} 
 
 img {
-  width:100%;
+  width:90%;
 }
 
 div {
@@ -97,15 +97,9 @@ window.onload = function() {
 <div>By <a href="http://stamen.com/studio/alan">Alan</a> 
    <a href="http://stamen.com/studio/beth">Beth</a> (@maptimesf), lyzi, Andy W, Adapted by Will </div>
 
-<div>Housekeeping!<br>You can follow along here: <a href="http://sta.mn/qhg">sta.mn/qhg</a>. Links are in blue boxes, <em>green</em> is just emphasis. You can comment and edit on <a href="https://github.com/maptime/anatomy-of-a-web-map/">github!</a></div>
+<div>Housekeeping!<br>You can follow along here: <a href="http://sta.mn/qhg">sta.mn/qhg</a>. Links are in blue boxes, <em>green</em> is just emphasis. You can comment and edit on <a href="https://github.com/skorasaurus/anatomy-of-a-web-map/">github!</a></div>
 <div>Today we will be talking about the <em>very most basic principles</em> of web mapping.</div>
 <div>We're including a little history, so you can get an idea of how web maps have come to be.</div>
-<div>But first, what does <em>anatomy</em> have to do with a web map?</div>
-<div>Well,</div>
-<div>Both bodies and web maps have components and systems that <em>interact and intertwine.</em></div>
-
-<div>Instead of cells, maps have <em>data.</em></div>
-<div>Instead of circulatory and digestive systems, web maps have <em>styles and tiles and servers.</em><br>oh my!</div>
 <div>So, What is a web map?</div>
 
 <div>How is a <em>web map</em> different than a <em>digital map</em>?</div>
@@ -135,21 +129,17 @@ window.onload = function() {
 <div>No!</div>
 <div>It was the <em>tile! <img src="images/tiles/toner.jpg"></em></div>
 
-<div>Let's talk about tiles for a minute. And to do so, we're borrowing some info from amazing mapper <a href="http://lyzidiamond.com/">Lyzi Diamond</a>, who got a bunch of info about tiles from <a href="https://www.mapbox.com/">Mapbox</a>.</div>
-<div><em>Thanks y'all! <3 </em><br>Now here goes...</div>
 
-<div><em>tiles<br>=<br>same size! 256x256 pixels<br>same boundaries<br>~20 zoom levels</em></div>
+<div><em>tiles<br>=<br>256x256 pixels<br>same boundaries<br>~20 zoom levels</em></div>
 <div><img src="images/tile_loading.gif"></div> <!-- All these little tiles load way faster than one big map. -->
 
+<div>Each <em>zoom level</em> has its own set of tiles!</div> 
 
-<div>Web maps like this load the tiles that are on your screen. If the map is “smart,” it will pre-load tiles outside of the screen, along the top, bottom, left, and right.</div>
-<div><img src="images/slippy-map.gif">This kind of map is colloquially called a <em>slippy map</em></div>
-<div>Each <em>zoom level</em> has its own set of tiles!</div>
 <div><img src="images/tiles/zoom0.png"><em>Zoom level 0: one tile for the world.</em></div>
 <div>With each additional zoom level, the number of tiles increases exponentially.</div>
 <div><img src="images/tiles/zoom1.png"><em>Zoom level 1: 4 tiles for the world.</em></div>
-
-(insert the equation here from andy's slides)
+<div> <p>Number of tiles at zoom level <em>z</em>:<br/>
+    2<sup>z</sup> x 2<sup>z</sup> = 4<sup>z</sup></p></div>
 <div>Tiles are <em>rendered</em> in advance (usually) then stored in a cache</div>
 <div>Map tiles are just images on the web, so you can link to them individually.</div>
 <div>For example: <a href="http://tile.openstreetmap.org/4/2/6.png">http://tile.openstreetmap.org/4/2/6.png</a></div>
@@ -157,16 +147,23 @@ window.onload = function() {
 <div>http://<em>tile.openstreetmap.org</em>/4/2/6.png -- this is the name of the tile server.</div>
 <div>http://tile.openstreetmap.org/<em>4</em>/2/6.png -- this is the z value, or the zoom level.</div>
 <div>http://tile.openstreetmap.org/4/<em>2/6</em>.png -- This is the x/y value, or the place in the grid where the tile lives.</div>
-<div> <p>Number of tiles at zoom level <em>z</em>:<br/>
-    2<sup>z</sup> x 2<sup>z</sup> = 4<sup>z</sup></p></div>
-<div>Web maps use <em>Mercator projection</em>, which is designed for sailors BUT it works well for flat maps.</div>
-<div><a href="http://commons.wikimedia.org/wiki/File:1855_Colton_Map_of_the_World_on_Mercator_Projection_-_Geographicus_-_WorldMercator-colton-1855.jpg"><img src="images/mercator.jpg"></a></div>
-<div>We'll see more map projections later...!</div>
+
+<div>Web maps use <em>Mercator projection</em>, which is designed for sailors BUT.... </div>
+
+<div data-bodyclass='cite'>by: Stefan Kühn<img src="images/tissot.png"></div>
+
+<div>but it's equidistant at local, small levels</div>
+
+<div><em> ZOOM LEVEL &#8800; SCALE </em> <img src="images/z16-boston.jpg"></div>
+
 <div>Anyway, so all other slippy maps and slippy map software followed Google's lead, with tiles at the base.</div>
-<div>Not surprisingly, a collection of <em>raster</em> tiles makes up what we call the map's <em>base layer.</em></div>
-<div>When we layer things like markers on top of them, we call those <em>layers</em>.</div>
+<div> sometimes referred as the base layer/base map</div> 
+<div>When we add things (like markers) on top of the base layer, we call those <em>layers</em>
+
+</div>
+
   <div>*(Not every web map contains a feature layer, but they are fairly typical.)</div>
-<div>They are often <em>vector</em> layers (point, line, polygon). Sometimes you can interact with them (clicking to produce a popup, for example).</div>
+<div>They are often layers (point, line, polygon). Sometimes you can interact with them (clicking to produce a popup, for example).</div>
 <div>Filetypes: GIS uses <em>shapefiles</em>, but web maps prefer <em>KML</em>, or more recently, <a href="http://github.com/lyzidiamond/learn-geojson">GeoJSON</a></div>
 <div>Here's the breakdown of how these pieces fit together:</div>
 <div><img src="images/basemap-datalayers-01.png"></div>
